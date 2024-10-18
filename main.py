@@ -4,6 +4,8 @@ import plotly.express as px
 from groq import Groq
 from typing import Generator
 
+st.set_page_config(page_title="Schedule optimizer", layout='wide',)
+
 # Title of the app
 st.title("Generative AI Production Scheduling Optimizer")
 
@@ -73,9 +75,9 @@ if production_schedule and lead_time_data:
         machine_prompt = (
             f"Based on the production schedule and lead-time data for Machine {selected_machine}, optimize the production sequence "
             f"and restrict the responses only to the following provided data:\n"
-            f"Production Schedule:\n{schedule_df.to_string(index=False)}\n\n"
+            # f"Production Schedule:\n{schedule_df.to_string(index=False)}\n\n"
             f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
-            "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information."
+            "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. For each machine do not consider the column 'DATE', 'Week', 'Volume planned'. Give the final result (without any code) in a neat, easy to understand format while. You can use algorithms like gentic algorithm, brute force approach etc. to do this task."
         )
 
         # Add machine prompt to session history
