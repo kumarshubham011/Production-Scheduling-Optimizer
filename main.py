@@ -72,12 +72,29 @@ if production_schedule and lead_time_data:
         machine_data.drop('Machine', axis=1, inplace=True)
 
         # Create the prompt for the selected machine
+        # machine_prompt = (
+        #     f"Based on the production schedule and lead-time data for Machine {selected_machine}, optimize the production sequence "
+        #     f"and restrict the responses only to the following provided data:\n"
+        #     # f"Production Schedule:\n{schedule_df.to_string(index=False)}\n\n"
+        #     f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
+        #     "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. For each machine do not consider the column 'DATE', 'Week', 'Volume planned'. Give the final result (without any code) in a neat, easy to understand format while. You can use algorithms like gentic algorithm, brute force approach etc. to do this task."
+        # )
+
+        # Update the machine prompt with the desired output format
         machine_prompt = (
             f"Based on the production schedule and lead-time data for Machine {selected_machine}, optimize the production sequence "
             f"and restrict the responses only to the following provided data:\n"
-            # f"Production Schedule:\n{schedule_df.to_string(index=False)}\n\n"
             f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
-            "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. For each machine do not consider the column 'DATE', 'Week', 'Volume planned'. Give the final result (without any code) in a neat, easy to understand format while. You can use algorithms like gentic algorithm, brute force approach etc. to do this task."
+            "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
+            "Use optimization techniques such as genetic algorithms or brute force approaches if necessary. "
+            "Ensure that the response is presented in the following format:\n\n"
+            "### Optimized Production Schedule for Machine {selected_machine}\n"
+            "1. **Sequence of SKUs:** SKU1 -> SKU2 -> SKU3 -> ...\n"
+            "2. **Total Lead-Time:** [Calculated value here]\n"
+            "3. **Key Observations:**\n"
+            "- [Observation 1]\n"
+            "- [Observation 2]\n\n"
+            "Output only in this format."
         )
 
         # Add machine prompt to session history
