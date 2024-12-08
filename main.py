@@ -88,7 +88,7 @@ if production_schedule and lead_time_data:
             # "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
             # "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
             "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
-            "Use brute force optimization technique to give me the shortest total time to cover all the SKU once. "
+            "Use travelling salesman optimization technique to give me the shortest total time to cover all the SKU once. "
             "Ensure that the response is presented in the following format:\n\n"
             "### Optimized Production Schedule for Machine {selected_machine}\n"
             "1. **Sequence of SKUs:** SKU1 -> SKU2 -> SKU3 -> ...\n"
