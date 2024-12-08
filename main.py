@@ -86,7 +86,7 @@ if production_schedule and lead_time_data:
             f"and restrict the responses only to the following provided data:\n"
             f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
             "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
-            "Use optimization techniques such as genetic algorithms or brute force approaches if necessary. "
+            "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
             "Ensure that the response is presented in the following format:\n\n"
             "### Optimized Production Schedule for Machine {selected_machine}\n"
             "1. **Sequence of SKUs:** SKU1 -> SKU2 -> SKU3 -> ...\n"
