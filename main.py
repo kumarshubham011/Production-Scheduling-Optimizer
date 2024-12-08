@@ -85,8 +85,6 @@ if production_schedule and lead_time_data:
             f"Based on the production schedule and lead-time data for Machine {selected_machine}, optimize the production sequence "
             f"and restrict the responses only to the following provided data:\n"
             f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
-            # "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
-            # "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
             "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
             "Use travelling salesman optimization technique to give me the shortest total time to cover all the SKU once. "
             "Ensure that the response is presented in the following format:\n\n"
@@ -145,9 +143,9 @@ if production_schedule and lead_time_data:
                 model="llama-3.1-70b-versatile",
                 messages=[{"role": m["role"], "content": m["content"]}
                           for m in st.session_state.messages],
-                temperature=0.2,
+                temperature=1,
                 max_tokens=1024,
-                top_p=1,
+                top_p=0.9,
                 stream=True,
                 stop=None,
             )
@@ -191,7 +189,7 @@ if production_schedule and lead_time_data:
                 messages=[{"role": m["role"], "content": m["content"]}
                           for m in st.session_state.messages],  # Pass full conversation context
                 max_tokens=1024,
-                temperature=0.2,
+                temperature=1,
                 stream=True
             )
 
