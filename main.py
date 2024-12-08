@@ -12,7 +12,7 @@ st.title("Generative AI Production Scheduling Optimizer")
 # Upload CSV files
 production_schedule = st.file_uploader(
     "Upload Production Schedule EXCEL", type="xlsx")
-lead_time_data = st.file_uploader("Upload Lead-Time EXCEL", type="xlsx")
+lead_time_data = st.file_uploader("Upload Change-Over-Time EXCEL", type="xlsx")
 
 if production_schedule and lead_time_data:
     # Read the data
@@ -21,7 +21,7 @@ if production_schedule and lead_time_data:
 
     # Display uploaded data
     st.write("Production Schedule Data:", schedule_df.head())
-    st.write("Lead-Time Data:", lead_time_df.head())
+    st.write("Change-Over-Time Data:", lead_time_df.head())
 
     # Visualization
     plot_type = st.selectbox("Select a plot type", [
@@ -94,7 +94,7 @@ if production_schedule and lead_time_data:
             "3. **Key Observations:**\n"
             "- [Observation 1]\n"
             "- [Observation 2]\n\n"
-            "Output only in this format."
+            "Output only in this format and do not include 'Notes' in your responses."
         )
 
         # Add machine prompt to session history
