@@ -81,41 +81,58 @@ if production_schedule and lead_time_data:
         # )
 
         # Update the machine prompt with the desired output format
-        machine_prompt = (
-            f"Based on the production schedule and lead-time data for Machine {selected_machine}, optimize the production sequence "
-            f"and restrict the responses only to the following provided data:\n"
-            f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
-            # "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
-            # "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
-            "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
-            "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
-            "Ensure that the response is presented in the following format:\n\n"
-            "### Optimized Production Schedule for Machine {selected_machine}\n"
-            "1. **Sequence of SKUs:** SKU1 -> SKU2 -> SKU3 -> ...\n"
-            "2. **Total Lead-Time:** [Calculated value here]\n"
-            "3. **Key Observations:**\n"
-            "- [Observation 1]\n"
-            "- [Observation 2]\n\n"
-            "Output only in this format and do not include 'Notes' in your responses."
-        )
+        # machine_prompt = (
+        #     f"Based on the production schedule and lead-time data for Machine {selected_machine}, optimize the production sequence "
+        #     f"and restrict the responses only to the following provided data:\n"
+        #     f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
+        #     # "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
+        #     # "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
+        #     "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
+        #     "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
+        #     "Ensure that the response is presented in the following format:\n\n"
+        #     "### Optimized Production Schedule for Machine {selected_machine}\n"
+        #     "1. **Sequence of SKUs:** SKU1 -> SKU2 -> SKU3 -> ...\n"
+        #     "2. **Total Lead-Time:** [Calculated value here]\n"
+        #     "3. **Key Observations:**\n"
+        #     "- [Observation 1]\n"
+        #     "- [Observation 2]\n\n"
+        #     "Output only in this format and do not include 'Notes' in your responses."
+        # )
 
         # Update the machine prompt with the desired output format
+        # machine_prompt = (
+        #     f"Based on the production schedule and lead-time data for Machine {selected_machine}, optimize the production sequence "
+        #     f"and restrict the responses only to the following provided data:\n"
+        #     f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
+        #     # "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
+        #     # "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
+        #     "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
+        #     "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
+        #     "Ensure that the response is presented in the following format:\n\n"
+        #     "### Optimized Production Schedule for Machine {selected_machine}\n"
+        #     "1. **Sequence of SKUs:** SKU1 -> SKU2 -> SKU3 -> ...\n"
+        #     "2. **Total Lead-Time:** [Calculated value here]\n"
+        #     "3. **Key Observations:**\n"
+        #     "- [Observation 1]\n"
+        #     "- [Observation 2]\n\n"
+        # "Output only in this format and do not include 'Notes' in your responses."
+        # )
+
         machine_prompt = (
             f"Based on the production schedule and lead-time data for Machine {selected_machine}, optimize the production sequence "
             f"and restrict the responses only to the following provided data:\n"
             f"Lead-Time Data:\n{machine_data.to_string(index=False)}\n\n"
-            # "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
-            # "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
-            "Provide the optimal sequence of SKUs to minimize lead-time, considering only the provided information. "
-            "Use optimization techniques to give me the shortest total time to cover all the SKU once. "
+            "The changeover time data has the following columns: Machine, SKU_1, SKU_2, and Changeover Time from SKU_1 to SKU_2. "
+            "Provide the optimal sequence of all SKUs for the selected machine to minimize total changeover time, considering only the provided information. "
+            "Use optimization techniques to give me the shortest total changeover time to cover all the SKUs once. "
             "Ensure that the response is presented in the following format:\n\n"
             "### Optimized Production Schedule for Machine {selected_machine}\n"
             "1. **Sequence of SKUs:** SKU1 -> SKU2 -> SKU3 -> ...\n"
-            "2. **Total Lead-Time:** [Calculated value here]\n"
+            "2. **Total Changeover Time:** [Calculated value here]\n"
             "3. **Key Observations:**\n"
             "- [Observation 1]\n"
             "- [Observation 2]\n\n"
-            "Output only in this format and do not include 'Notes' in your responses."
+            "Output only in this format and do not include 'Notes' in your responses. Do not change the answers or hallucinate."
         )
 
         # Add machine prompt to session history
