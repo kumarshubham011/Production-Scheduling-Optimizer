@@ -145,7 +145,7 @@ if production_schedule and lead_time_data:
                 model="llama-3.1-70b-versatile",
                 messages=[{"role": m["role"], "content": m["content"]}
                           for m in st.session_state.messages],
-                temperature=0,
+                temperature=0.2,
                 max_tokens=1024,
                 top_p=1,
                 stream=True,
@@ -191,7 +191,7 @@ if production_schedule and lead_time_data:
                 messages=[{"role": m["role"], "content": m["content"]}
                           for m in st.session_state.messages],  # Pass full conversation context
                 max_tokens=1024,
-                temperature=0,
+                temperature=0.2,
                 stream=True
             )
 
